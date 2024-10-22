@@ -55,12 +55,7 @@ public class OrderAppService(
         
         return order.Id;
     }
-
-
-    public async Task<IEnumerable<GetOrderDto>?> GetAll()
-    {
-        return await repository.GetAll();
-    }
+    
 
     public void CalculatePrice(Order order)
     {

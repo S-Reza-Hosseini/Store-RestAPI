@@ -2,7 +2,7 @@ using Store.Services.Orders.Contracts.Dtos;
 
 namespace Store.Services.Orders.Contracts.Interface;
 
-public interface OrderService
+public interface OrderQuery
 {
-    Task<int> Add(AddOrderDto dto);
+    public Task<List<GetOrderDto>> GetAll();
 }

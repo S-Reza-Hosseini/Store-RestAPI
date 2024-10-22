@@ -41,6 +41,10 @@ builder.Services.AddScoped<ProductService, ProductAppService>();
 builder.Services.AddScoped<OrderService, OrderAppService>();
 builder.Services.AddScoped<DoAddOrder, DoCommandOrder>();
 
+builder.Services.AddScoped<CustomerQuery, EFCustomerQuery>();
+builder.Services.AddScoped<OrderQuery, EFOrderQuery>();
+builder.Services.AddScoped<ProductQuery, EFProductQuery>();
+
 
 
 

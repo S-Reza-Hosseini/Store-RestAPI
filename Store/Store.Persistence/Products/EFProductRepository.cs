@@ -15,17 +15,6 @@ public class EFProductRepository(StoreDataContext context):ProductRepository
         context.Products.Add(product);
     }
     
-    public async Task<IEnumerable<GetProductDto>?> GetAll(string? search)
-    {
-        return await context.Products.Select(_ => new GetProductDto()
-        {
-            Id = _.Id,
-            Title = _.Title,
-            Description = _.Description,
-            Price = _.Price
-        }).ToArrayAsync();
-    }
-    
     public Product? Find(int productId)
     {
         return context.Products.FirstOrDefault(_ => _.Id == productId);

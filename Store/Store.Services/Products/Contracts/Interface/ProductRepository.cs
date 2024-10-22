@@ -6,8 +6,6 @@ namespace Store.Services.Products.Contracts.Interface;
 public interface ProductRepository
 {
     void Add(Product product);
-    Task<IEnumerable<GetProductDto>?> GetAll(string? search);
-
     Product? Find(int productId);
     int CheckingInventory(int productId);
     Task<bool> IsExistById(int productId);

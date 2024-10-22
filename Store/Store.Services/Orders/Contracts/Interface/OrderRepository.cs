@@ -6,5 +6,5 @@ namespace Store.Services.Orders.Contracts.Interface;
 public interface OrderRepository
 {
     Task Add(Order order);
-    Task<IEnumerable<GetOrderDto>?> GetAll();
+ 
 }

@@ -25,7 +25,7 @@ public class EFCustomerRepository(StoreDataContext context):CustomerRepository
         }).ToListAsync();
     }
 
-    public async Task<IEnumerable<GetCustomerOrderDto>?> GetCustomerOrders(int id)
+    public async Task<List<GetCustomerOrderDto>?> GetCustomerOrders(int id)
     {
         return await (
             from customer in context.Customers
@@ -38,7 +38,7 @@ public class EFCustomerRepository(StoreDataContext context):CustomerRepository
                 TotalPrice = order.TotalPrice
             }
 
-        ).ToArrayAsync();
+        ).ToListAsync();
     }
 
     public async Task<bool> IsExistById(int customerId)

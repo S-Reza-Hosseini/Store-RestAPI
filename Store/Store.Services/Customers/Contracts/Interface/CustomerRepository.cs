@@ -7,7 +7,7 @@ public interface CustomerRepository
 {
     Task Add(Customer customer);
     Task<List<GetCustomerDto>?> GetAll();
-    Task<IEnumerable<GetCustomerOrderDto>?> GetCustomerOrders(int id);
+    Task<List<GetCustomerOrderDto>?> GetCustomerOrders(int id);
     Task<bool> IsExistById(int customerId);
     Task<Customer?> Find(int customerId);
     void Delete(Customer? customer);

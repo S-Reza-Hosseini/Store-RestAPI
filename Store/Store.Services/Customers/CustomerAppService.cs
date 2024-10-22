@@ -23,16 +23,6 @@ public class CustomerAppService(CustomerRepository repository, UnitOfWork unitOf
         return customer.Id;
     }
     
-    public async Task<List<GetCustomerDto>?> GetAll()
-    {
-        return await repository.GetAll();
-    }
-
-    public async Task<IEnumerable<GetCustomerOrderDto>?> GetAllCustomerOrders(int id)
-    {
-        return await repository.GetCustomerOrders(id);
-    }
-
     public async Task Delete(int customerId)
     {
         if (!await repository.IsExistById(customerId))
@@ -43,5 +33,7 @@ public class CustomerAppService(CustomerRepository repository, UnitOfWork unitOf
         var customer = await repository.Find(customerId);
 
         repository.Delete(customer);
+
+        await unitOfWork.Save();
     }
 }

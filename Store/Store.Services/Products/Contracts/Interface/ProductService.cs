@@ -5,7 +5,6 @@ namespace Store.Services.Products.Contracts.Interface;
 public interface ProductService
 {
     Task<int> Add(AddProductDto dto);
-    Task<IEnumerable<GetProductDto>?> GetAll(string? search);
     Task Update(UpdateProductDto dto, int productId);
     Task Delete(int productId);
     Task<int> GetCount();

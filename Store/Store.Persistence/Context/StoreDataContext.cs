@@ -8,6 +8,14 @@ namespace Store.Persistence.Context;
 
 public class StoreDataContext:DbContext
 {
+    public StoreDataContext(
+        string connectionString)
+        : this(
+            new DbContextOptionsBuilder<StoreDataContext>()
+                .UseSqlServer(connectionString).Options)
+    {
+    }
+
     public StoreDataContext(DbContextOptions options) : base(options)
     {
     }

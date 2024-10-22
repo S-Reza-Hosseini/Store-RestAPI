@@ -29,13 +29,7 @@ public class ProductAppService(ProductRepository repository, UnitOfWork unitOfWo
 
         return product.Id;
     }
-
-    public async Task<IEnumerable<GetProductDto>?> GetAll(string? search)
-    {
-       
-        return await repository.GetAll(search);
-    }
-
+    
     public async Task Update(UpdateProductDto dto, int productId)
     {
         if (!await repository.IsExistById(productId))

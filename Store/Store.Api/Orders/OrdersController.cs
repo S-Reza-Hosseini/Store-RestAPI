@@ -9,33 +9,24 @@ namespace Store.Api.Orders;
 [Route("api/orders")]
 [ApiController]
 
-public class OrdersController:ControllerBase
+public class OrdersController(OrderService orderService,DoAddOrder addOrderHandler , OrderQuery orderQuery ):ControllerBase
 {
-    private readonly OrderService _service;
-    private readonly DoAddOrder _handler;
-    
-    public OrdersController(OrderService orderService, DoAddOrder addOrder)
-    {
-        _service = orderService;
-        _handler = addOrder;
-
-    }
-
+   
     [HttpPost]
     public async Task<int> Create(AddOrderDto dto)
     {
-        return await _service.Add(dto);
+        return await orderService.Add(dto);
     }
 
     [HttpGet("/get-all")]
-    public async Task<IEnumerable<GetOrderDto>?> GetAll()
+    public async Task<List<GetOrderDto>?> GetAll()
     {
-        return await _service.GetAll();
+        return await orderQuery.GetAll();
     }
 
     [HttpPost("/order-and-customer")]
     public async Task AddOrderAndCustomer(DoAddingOrderDto dto)
     {
-        await _handler.Add(dto);
+        await addOrderHandler.Add(dto);
     }
 }
